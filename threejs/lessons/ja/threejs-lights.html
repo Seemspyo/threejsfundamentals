@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<!-- this file is auto-generated from threejs/lessons/ja/langinfo.hanson. Do not edited directly -->
-<!--
+<!DOCTYPE html><!-- this file is auto-generated from threejs/lessons/ja/threejs-lights.md. Do not edited directly --><!--
 Copyright 2018, Google Inc.
 All rights reserved.
 
@@ -8,17 +6,17 @@ Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
 met:
 
-    * Redistributions of source code must retain the above copyright
-      notice, this list of conditions and the following disclaimer.
+*   Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
 
-    * Redistributions in binary form must reproduce the above
-      copyright notice, this list of conditions and the following disclaimer
-      in the documentation and/or other materials provided with the
-      distribution.
+*   Redistributions in binary form must reproduce the above
+    copyright notice, this list of conditions and the following disclaimer
+    in the documentation and/or other materials provided with the
+    distribution.
 
-    * Neither the name of Google Inc. nor the names of their
-      contributors may be used to endorse or promote products derived from
-      this software without specific prior written permission.
+*   Neither the name of Google Inc. nor the names of their
+    contributors may be used to endorse or promote products derived from
+    this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
 "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -31,42 +29,93 @@ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
 THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->
-<html lang="ja">
-<head>
+--><html lang="ja"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta property="og:title" content="Three.js Lights" />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="https://threejsfundamentals.org/threejs/lessons/resources/threejsfundamentals.jpg" />
-<meta property="og:description" content="Setting up Lights" />
-<meta property="og:url" content="https://threejsfundamentals.org/threejs/lessons/ja/threejs-lights.html" />
 
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="@greggman" />
-<meta name="twitter:creator" content="@greggman" />
-<meta name="twitter:domain" content="threejsfundamentals.org" />
-<meta name="twitter:title" content="Three.js Lights" />
-<meta name="twitter:url" content="https://threejsfundamentals.org/threejs/lessons/ja/threejs-lights.html" />
-<meta name="twitter:description" content="Setting up Lights" />
-<meta name="twitter:image:src" content="https://threejsfundamentals.org/threejs/lessons/resources/threejsfundamentals.jpg" />
+<meta name="description" content="ライトの設定">
+<meta name="keywords" content="webgl graphics three.js">
+<meta name="thumbnail" content="https://threejsfundamentals.org/threejs/lessons/screenshots/threejs-lights_ja.jpg">
+
+<meta property="og:title" content="Three.jsのライト">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://threejsfundamentals.org/threejs/lessons/screenshots/threejs-lights_ja.jpg">
+<meta property="og:description" content="ライトの設定">
+<meta property="og:url" content="https://threejsfundamentals.org/threejs/lessons/ja/threejs-lights.html">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@greggman">
+<meta name="twitter:creator" content="@greggman">
+<meta name="twitter:domain" content="threejsfundamentals.org">
+<meta name="twitter:title" content="Three.jsのライト">
+<meta name="twitter:url" content="https://threejsfundamentals.org/threejs/lessons/ja/threejs-lights.html">
+<meta name="twitter:description" content="ライトの設定">
+<meta name="twitter:image:src" content="https://threejsfundamentals.org/threejs/lessons/screenshots/threejs-lights_ja.jpg">
+
+  <link rel="alternate" hreflang="en" href="https://webglfundamentals.org/threejs/lessons/threejs-lights.html">
+  <link rel="alternate" hreflang="fr" href="https://webglfundamentals.org/threejs/lessons/fr/threejs-lights.html">
+  <link rel="alternate" hreflang="ja" href="https://webglfundamentals.org/threejs/lessons/ja/threejs-lights.html">
+  <link rel="alternate" hreflang="kr" href="https://webglfundamentals.org/threejs/lessons/kr/threejs-lights.html">
+  <link rel="alternate" hreflang="ru" href="https://webglfundamentals.org/threejs/lessons/ru/threejs-lights.html">
+  <link rel="alternate" hreflang="zh_cn" href="https://webglfundamentals.org/threejs/lessons/zh_cn/threejs-lights.html">
 
 
-<title>Three.js Lights</title>
+
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"WebSite",
+      "@id":"https://threejsfundamentals.org/#website",
+      "url":"https://threejsfundamentals.org/",
+      "name":"ThreejsFundamentals"
+    },
+    {
+      "@type":"ImageObject",
+      "@id":"https://threejsfundamentals.org/threejs/lessons/ja/threejs-lights.html#primaryimage",
+      "url":"https://threejsfundamentals.org/threejs/lessons/screenshots/threejs-lights_ja.jpg",
+      "width":1200,
+      "height":630
+    },
+    {
+      "@type":"WebPage",
+      "@id":"https://threejsfundamentals.org/threejs/lessons/ja/threejs-lights.html#webpage",
+      "url":"https://threejsfundamentals.org/threejs/lessons/ja/threejs-lights.html",
+      "inLanguage":"ja",
+      "name":"Three.jsのライト",
+      "keywords":"webgl graphics three.js programming",
+      "isPartOf":{
+        "@id":"https://threejsfundamentals.org/#website"
+      },
+      "primaryImageOfPage":{
+        "@id":"https://threejsfundamentals.org/threejs/lessons/ja/threejs-lights.html#primaryimage"
+      }
+    }
+  ]
+}
+</script>
+
+<title>Three.jsのライト</title>
 <link href="/threejs/lessons/resources/threejsfundamentals-icon.png" rel="shortcut icon" type="image/png">
-<link rel="stylesheet" href="/threejs/lessons/resources/lesson.css" />
+<link rel="apple-touch-icon" href="/threejs/lessons/resources/threejsfundamentals-icon.png">
+<link rel="icon" href="/threejs/lessons/resources/threejsfundamentals-icon.png">
+
+<link rel="stylesheet" href="/threejs/lessons/lang.css">
+<link rel="stylesheet" href="/threejs/lessons/resources/lesson.css">
 </head>
 <body>
 <div class="threejs_navbar">
   <div>
     <select class="language">
-    <option value="/threejs/lessons/threejs-lights.html" >English</a>
-    <option value="/threejs/lessons/fr/threejs-lights.html" >Français</a>
-    <option value="/threejs/lessons/ja/threejs-lights.html" selected>日本語</a>
-    <option value="/threejs/lessons/kr/threejs-lights.html" >한국어</a>
-    <option value="/threejs/lessons/ru/threejs-lights.html" >Русский</a>
-    <option value="/threejs/lessons/zh_cn/threejs-lights.html" >中文</a>
-</select>
+    <option value="/threejs/lessons/threejs-lights.html">English
+    </option><option value="/threejs/lessons/fr/threejs-lights.html">Français
+    </option><option value="/threejs/lessons/ja/threejs-lights.html" selected="">日本語
+    </option><option value="/threejs/lessons/kr/threejs-lights.html">한국어
+    </option><option value="/threejs/lessons/ru/threejs-lights.html">Русский
+    </option><option value="/threejs/lessons/zh_cn/threejs-lights.html">中文
+</option></select>
 
 
     <a href="#toc">目次</a>
@@ -75,32 +124,41 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 <div class="threejs_header">
   <h1><a href="/threejs/lessons/ja/">threejsfundamentals.org</a></h1>
 <style>
-#forkongithub a {
+#forkongithub>div {
     background: #000;
     color: #fff;
-    text-decoration: none;
     font-family: arial,sans-serif;
     text-align: center;
     font-weight: bold;
     padding: 5px 40px;
     font-size: 0.9rem;
-    line-height: 2rem;
+    line-height: 1.3rem;
     position: relative;
     transition: 0.5s;
     display: block;
-    width: 300px;
+    width: 400px;
     position: absolute;
     top: 0;
     right: 0;
-    transform: translateX(150px) rotate(45deg) translate(10px,70px);
+    transform: translateX(200px) rotate(45deg) translate(10px,70px);
     box-shadow: 4px 4px 10px rgba(0,0,0,0.8);
     pointer-events: auto;
 }
-#forkongithub a:hover {
+#forkongithub a {
+  text-decoration: none;
+  color: #fff;
+}
+#forkongithub>div:hover {
     background: #c11;
     color: #fff;
 }
-#forkongithub a::before,#forkongithub a::after {
+#forkongithub .contributors {
+  font-size: 0.75rem;
+  background: rgba(255,255,255,0.2);
+  line-height: 1.2;
+  padding: 0.1em;
+}
+#forkongithub>div::before,#forkongithub>div::after {
     content: "";
     width: 100%;
     display: block;
@@ -110,7 +168,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     height: 1px;
     background: #fff;
 }
-#forkongithub a::after {
+#forkongithub>div::after {
     bottom: 1px;
     top: auto;
 }
@@ -131,8 +189,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   height: 1em;
   vertical-align: middle;
 }
+#forkongithub img {
+  width: 1em;
+  height: 1em;
+  border-radius: 100%;
+  vertical-align: middle;
+}
+
 @media (max-width: 900px) {
-    #forkongithub a{
+    #forkongithub>div {
         line-height: 1.2rem;
     }
 }
@@ -142,47 +207,482 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   }
 }
 @media (max-width: 410px) {
-    #forkongithub a{
+    #forkongithub>div {
         font-size: 0.7rem;
         transform: translateX(150px) rotate(45deg) translate(20px,40px);
     }
 }
 
 </style>
-<div id="forkongithub"><a href="https://github.com/gfxfundamentals/threejsfundamentals">Fix, Fork, Contribute <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<div id="forkongithub"><div><div><a href="https://github.com/gfxfundamentals/threejsfundamentals">Fix, Fork, Contribute <!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
 <svg width="100%" height="100%" viewBox="0 0 136 133" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
     <g transform="matrix(3.92891,0,0,3.92891,67.867,129.125)">
-        <path d="M0,-31.904C-8.995,-31.904 -16.288,-24.611 -16.288,-15.614C-16.288,-8.417 -11.621,-2.312 -5.148,-0.157C-4.333,-0.008 -4.036,-0.511 -4.036,-0.943C-4.036,-1.329 -4.05,-2.354 -4.058,-3.713C-8.589,-2.729 -9.545,-5.897 -9.545,-5.897C-10.286,-7.779 -11.354,-8.28 -11.354,-8.28C-12.833,-9.29 -11.242,-9.27 -11.242,-9.27C-9.607,-9.155 -8.747,-7.591 -8.747,-7.591C-7.294,-5.102 -4.934,-5.821 -4.006,-6.238C-3.858,-7.29 -3.438,-8.008 -2.972,-8.415C-6.589,-8.826 -10.392,-10.224 -10.392,-16.466C-10.392,-18.244 -9.757,-19.698 -8.715,-20.837C-8.883,-21.249 -9.442,-22.905 -8.556,-25.148C-8.556,-25.148 -7.188,-25.586 -4.076,-23.478C-2.777,-23.84 -1.383,-24.02 0.002,-24.026C1.385,-24.02 2.779,-23.84 4.08,-23.478C7.19,-25.586 8.555,-25.148 8.555,-25.148C9.444,-22.905 8.885,-21.249 8.717,-20.837C9.761,-19.698 10.392,-18.244 10.392,-16.466C10.392,-10.208 6.583,-8.831 2.954,-8.428C3.539,-7.925 4.06,-6.931 4.06,-5.411C4.06,-3.234 4.04,-1.477 4.04,-0.943C4.04,-0.507 4.333,0 5.16,-0.159C11.628,-2.318 16.291,-8.419 16.291,-15.614C16.291,-24.611 8.997,-31.904 0,-31.904" style="fill:white;"/>
+        <path d="M0,-31.904C-8.995,-31.904 -16.288,-24.611 -16.288,-15.614C-16.288,-8.417 -11.621,-2.312 -5.148,-0.157C-4.333,-0.008 -4.036,-0.511 -4.036,-0.943C-4.036,-1.329 -4.05,-2.354 -4.058,-3.713C-8.589,-2.729 -9.545,-5.897 -9.545,-5.897C-10.286,-7.779 -11.354,-8.28 -11.354,-8.28C-12.833,-9.29 -11.242,-9.27 -11.242,-9.27C-9.607,-9.155 -8.747,-7.591 -8.747,-7.591C-7.294,-5.102 -4.934,-5.821 -4.006,-6.238C-3.858,-7.29 -3.438,-8.008 -2.972,-8.415C-6.589,-8.826 -10.392,-10.224 -10.392,-16.466C-10.392,-18.244 -9.757,-19.698 -8.715,-20.837C-8.883,-21.249 -9.442,-22.905 -8.556,-25.148C-8.556,-25.148 -7.188,-25.586 -4.076,-23.478C-2.777,-23.84 -1.383,-24.02 0.002,-24.026C1.385,-24.02 2.779,-23.84 4.08,-23.478C7.19,-25.586 8.555,-25.148 8.555,-25.148C9.444,-22.905 8.885,-21.249 8.717,-20.837C9.761,-19.698 10.392,-18.244 10.392,-16.466C10.392,-10.208 6.583,-8.831 2.954,-8.428C3.539,-7.925 4.06,-6.931 4.06,-5.411C4.06,-3.234 4.04,-1.477 4.04,-0.943C4.04,-0.507 4.333,0 5.16,-0.159C11.628,-2.318 16.291,-8.419 16.291,-15.614C16.291,-24.611 8.997,-31.904 0,-31.904" style="fill:white;"></path>
     </g>
 </svg>
-</a></div>
+</a></div></div></div>
 
 </div>
 
 
 <div class="container">
   <div class="lesson-title">
-    <h1>Three.js Lights</h1>
+    <h1>Three.jsのライト</h1>
   </div>
   <div class="lesson">
     <div class="lesson-main">
-      <p>すいません、この記事はまだ翻訳してません. <a href="https://github.com/gfxfundamentals/threejsfundamentals">Translations Welcome</a>! 😄</p>
-<p><a href="/threejs/lessons/threejs-lights.html">ここに元の英語の記事があります</a>.</p>
+      <p>この記事はThree.jsの連載記事の1つです。
+最初の記事は<a href="threejs-fundamentals.html">Three.jsの基礎知識</a>です。
+まだ読んでいない場合は、Three.jsの基礎知識や<a href="threejs-setup.html">セットアップ</a>から始めると良いと思います。
+前回の記事は<a href="threejs-textures.html">テクスチャ</a>でした。</p>
+<p>今回はthree.jsの色々な種類のライトの使い方を確認していきます。</p>
+<p>前回のサンプルコードからカメラの設定を修正しましょう。
+視野角(fov)を45度にし、遠平面(far)を100、カメラを原点からY座標に10、Z座標を20にします。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">*const fov = 45;
+const aspect = 2;  // the canvas default
+const near = 0.1;
+*const far = 100;
+const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
++camera.position.set(0, 10, 20);
+</pre>
+<p>次に <a href="https://threejs.org/docs/#examples/controls/OrbitControls"><code class="notranslate" translate="no">OrbitControls</code></a> を追加します。
+<a href="https://threejs.org/docs/#examples/controls/OrbitControls"><code class="notranslate" translate="no">OrbitControls</code></a> は、カメラをある点を中心に<em>軌道</em>を回転できます。
+<a href="https://threejs.org/docs/#examples/controls/OrbitControls"><code class="notranslate" translate="no">OrbitControls</code></a> はthree.jsのオプション機能なので、importする必要があります。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">import * as THREE from './resources/three/r125/build/three.module.js';
++import {OrbitControls} from './resources/threejs/r125/examples/jsm/controls/OrbitControls.js';
+</pre>
+<p>これでOrbitControlsを利用できます。
+<a href="https://threejs.org/docs/#examples/controls/OrbitControls"><code class="notranslate" translate="no">OrbitControls</code></a> にカメラと入力イベントを取得するDOM要素を渡します。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">const controls = new OrbitControls(camera, canvas);
+controls.target.set(0, 5, 0);
+controls.update();
+</pre>
+<p>controls.targetのY座標を5にして <code class="notranslate" translate="no">controls.update</code> を呼び出します。</p>
+<p>次はライトアップするオブジェクトを作ってみましょう。
+まずは地上となる平面を作ります。
+この平面に2 x 2ピクセルの小さなチェッカーボードのテクスチャを適用します。</p>
+<div class="threejs_center">
+  <img src="../../resources/images/checker.png" class="border" style="
+    image-rendering: pixelated;
+    width: 128px;
+  ">
+</div>
+
+<p>最初にテクスチャを読み込み、何回テクスチャのリピートを繰り返すかを設定し、フィルターはニアレスト(nearest)にします。
+テクスチャは2 x 2ピクセルのチェッカーボードです。
+テクスチャのリピートは平面の半分の大きさにし、チェッカーボードの1つのチェック部分は1にします。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">const planeSize = 40;
+
+const loader = new THREE.TextureLoader();
+const texture = loader.load('resources/images/checker.png');
+texture.wrapS = THREE.RepeatWrapping;
+texture.wrapT = THREE.RepeatWrapping;
+texture.magFilter = THREE.NearestFilter;
+const repeats = planeSize / 2;
+texture.repeat.set(repeats, repeats);
+</pre>
+<p>平面のジオメトリとマテリアルを作り、それを元にシーンに追加するメッシュを作ります。
+平面のデフォルトは縦向きなので横向きになるように回転します。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">const planeGeo = new THREE.PlaneGeometry(planeSize, planeSize);
+const planeMat = new THREE.MeshPhongMaterial({
+  map: texture,
+  side: THREE.DoubleSide,
+});
+const mesh = new THREE.Mesh(planeGeo, planeMat);
+mesh.rotation.x = Math.PI * -.5;
+scene.add(mesh);
+</pre>
+<p>キューブと球体を追加し、平面を含めて3つのオブジェクトをライティングします。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">{
+  const cubeSize = 4;
+  const cubeGeo = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize);
+  const cubeMat = new THREE.MeshPhongMaterial({color: '#8AC'});
+  const mesh = new THREE.Mesh(cubeGeo, cubeMat);
+  mesh.position.set(cubeSize + 1, cubeSize / 2, 0);
+  scene.add(mesh);
+}
+{
+  const sphereRadius = 3;
+  const sphereWidthDivisions = 32;
+  const sphereHeightDivisions = 16;
+  const sphereGeo = new THREE.SphereGeometry(sphereRadius, sphereWidthDivisions, sphereHeightDivisions);
+  const sphereMat = new THREE.MeshPhongMaterial({color: '#CA8'});
+  const mesh = new THREE.Mesh(sphereGeo, sphereMat);
+  mesh.position.set(-sphereRadius - 1, sphereRadius + 2, 0);
+  scene.add(mesh);
+}
+</pre>
+<p>ライトアップするシーンができたのでライトを追加しましょう！</p>
+<h2 id="-ambientlight-"><code class="notranslate" translate="no">AmbientLight（環境光源）</code></h2>
+<p>最初に <a href="https://threejs.org/docs/#api/en/lights/AmbientLight"><code class="notranslate" translate="no">AmbientLight</code></a> を作りましょう。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">const color = 0xFFFFFF;
+const intensity = 1;
+const light = new THREE.AmbientLight(color, intensity);
+scene.add(light);
+</pre>
+<p>ライトのパラメーターを調整できるようにします。
+今回も<a href="https://github.com/dataarts/dat.gui">dat.GUI</a>を使います。
+dat.GUIで色を調整するにはヘルパーが必要です。
+プロパティをdat.GUIにCSSの16進数の形で表示します(例: <code class="notranslate" translate="no">#FF8844</code>)。
+ヘルパーは名前付きプロパティから色を取得し、16進数の文字列に変換してdat.GUIに渡します。dat.GUIがヘルパーのプロパティを設定し、結果をライトの色に戻します。</p>
+<p>これがヘルパーです。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">class ColorGUIHelper {
+  constructor(object, prop) {
+    this.object = object;
+    this.prop = prop;
+  }
+  get value() {
+    return `#${this.object[this.prop].getHexString()}`;
+  }
+  set value(hexString) {
+    this.object[this.prop].set(hexString);
+  }
+}
+</pre>
+<p>dat.GUIの設定は以下の通りです。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">const gui = new GUI();
+gui.addColor(new ColorGUIHelper(light, 'color'), 'value').name('color');
+gui.add(light, 'intensity', 0, 2, 0.01);
+</pre>
+<p>これで以下のような結果になります。</p>
+<p></p><div translate="no" class="threejs_example_container notranslate">
+  <div><iframe class="threejs_example notranslate" translate="no" style=" " src="/threejs/resources/editor.html?url=/threejs/lessons/..%2Fthreejs-lights-ambient.html"></iframe></div>
+  <a class="threejs_center" href="/threejs/lessons/../threejs-lights-ambient.html" target="_blank">ここをクリックして別のウィンドウで開きます</a>
+</div>
+
+<p></p>
+<p>シーンをクリックしてドラッグして、カメラを<em>軌道</em>に乗せます。</p>
+<p>環境光源だけでは正しくライティング表現できてません。キューブと球体に陰影がなく形状が平面に見えます。
+以下のように <a href="https://threejs.org/docs/#api/en/lights/AmbientLight"><code class="notranslate" translate="no">AmbientLight</code></a> はマテリアルの色とライトの色、ライトの強度(intensity)を掛けてます。</p>
+<pre class="prettyprint showlinemods notranslate notranslate" translate="no">color = materialColor * light.color * light.intensity;
+</pre><p>それだけで方向性がないです。
+この環境光源は100％均一でシーン内の全ての色を変える以外は<em>ライティング</em>としてはあまり役に立ちません。
+環境光源は暗すぎない暗さを作る事ができます。</p>
+<h2 id="-hemispherelight-"><code class="notranslate" translate="no">HemisphereLight（半球光源）</code></h2>
+<p>コードを <a href="https://threejs.org/docs/#api/en/lights/HemisphereLight"><code class="notranslate" translate="no">HemisphereLight</code></a> に切り替えてみましょう。
+<a href="https://threejs.org/docs/#api/en/lights/HemisphereLight"><code class="notranslate" translate="no">HemisphereLight</code></a> は空と地面の色を取得し、その2色とマテリアルの色を掛け合わせます。</p>
+<p>これが新しいコードです。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">-const color = 0xFFFFFF;
++const skyColor = 0xB1E1FF;  // light blue
++const groundColor = 0xB97A20;  // brownish orange
+const intensity = 1;
+-const light = new THREE.AmbientLight(color, intensity);
++const light = new THREE.HemisphereLight(skyColor, groundColor, intensity);
+scene.add(light);
+</pre>
+<p>dat.GUIのコードを修正し、両方の色を編集してみましょう。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">const gui = new GUI();
+-gui.addColor(new ColorGUIHelper(light, 'color'), 'value').name('color');
++gui.addColor(new ColorGUIHelper(light, 'color'), 'value').name('skyColor');
++gui.addColor(new ColorGUIHelper(light, 'groundColor'), 'value').name('groundColor');
+gui.add(light, 'intensity', 0, 2, 0.01);
+</pre>
+<p>これが結果です。</p>
+<p></p><div translate="no" class="threejs_example_container notranslate">
+  <div><iframe class="threejs_example notranslate" translate="no" style=" " src="/threejs/resources/editor.html?url=/threejs/lessons/..%2Fthreejs-lights-hemisphere.html"></iframe></div>
+  <a class="threejs_center" href="/threejs/lessons/../threejs-lights-hemisphere.html" target="_blank">ここをクリックして別のウィンドウで開きます</a>
+</div>
+
+<p></p>
+<p>まだ正しくライティング表現ができてなく、キューブと球体が平面に見えます。
+別のライトと組み合わせて使用される <a href="https://threejs.org/docs/#api/en/lights/HemisphereLight"><code class="notranslate" translate="no">HemisphereLight</code></a> は、空や地面の色に良い影響を与えます。
+この方法では他のライトと組み合わせて使うか、<a href="https://threejs.org/docs/#api/en/lights/HemisphereLight"><code class="notranslate" translate="no">HemisphereLight</code></a> を代わりに使うのがベストです。</p>
+<h2 id="-directionallight-"><code class="notranslate" translate="no">DirectionalLight（平行光源）</code></h2>
+<p>コードを <a href="https://threejs.org/docs/#api/en/lights/DirectionalLight"><code class="notranslate" translate="no">DirectionalLight</code></a> に切り替えてみましょう。
+<a href="https://threejs.org/docs/#api/en/lights/DirectionalLight"><code class="notranslate" translate="no">DirectionalLight</code></a> は太陽を表すのによく使われます。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">const color = 0xFFFFFF;
+const intensity = 1;
+const light = new THREE.DirectionalLight(color, intensity);
+light.position.set(0, 10, 0);
+light.target.position.set(-5, 0, 0);
+scene.add(light);
+scene.add(light.target);
+</pre>
+<p>シーンに <code class="notranslate" translate="no">light</code> と <code class="notranslate" translate="no">light.target</code> を追加する必要があります。
+three.jsの <a href="https://threejs.org/docs/#api/en/lights/DirectionalLight"><code class="notranslate" translate="no">DirectionalLight</code></a> はターゲットの方向にライティングします。</p>
+<p>GUIに追加してlight.targetを動かせるようにしてみましょう。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">const gui = new GUI();
+gui.addColor(new ColorGUIHelper(light, 'color'), 'value').name('color');
+gui.add(light, 'intensity', 0, 2, 0.01);
+gui.add(light.target.position, 'x', -10, 10);
+gui.add(light.target.position, 'z', -10, 10);
+gui.add(light.target.position, 'y', 0, 10);
+</pre>
+<p></p><div translate="no" class="threejs_example_container notranslate">
+  <div><iframe class="threejs_example notranslate" translate="no" style=" " src="/threejs/resources/editor.html?url=/threejs/lessons/..%2Fthreejs-lights-directional.html"></iframe></div>
+  <a class="threejs_center" href="/threejs/lessons/../threejs-lights-directional.html" target="_blank">ここをクリックして別のウィンドウで開きます</a>
+</div>
+
+<p></p>
+<p>なんだか見づらいですね。
+Three.jsにはシーンに追加できるヘルパーオブジェクトがたくさんあり、シーンの見えない部分を視覚化するのに役立ちます。
+今回は <a href="https://threejs.org/docs/#api/en/helpers/DirectionalLightHelper"><code class="notranslate" translate="no">DirectionalLightHelper</code></a> を使い、ライトから平面までの線を描画します。
+lightをDirectionalLightHelperに渡してシーンに追加します。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">const helper = new THREE.DirectionalLightHelper(light);
+scene.add(helper);
+</pre>
+<p>ライトの位置とターゲットの両方を設定できるようにしておきましょう。
+<a href="https://threejs.org/docs/#api/en/math/Vector3"><code class="notranslate" translate="no">Vector3</code></a> が与えられた時に <code class="notranslate" translate="no">dat.GUI</code> を使い <code class="notranslate" translate="no">x</code>, <code class="notranslate" translate="no">y</code>, <code class="notranslate" translate="no">z</code> プロパティを調整できる関数を作ります。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">function makeXYZGUI(gui, vector3, name, onChangeFn) {
+  const folder = gui.addFolder(name);
+  folder.add(vector3, 'x', -10, 10).onChange(onChangeFn);
+  folder.add(vector3, 'y', 0, 10).onChange(onChangeFn);
+  folder.add(vector3, 'z', -10, 10).onChange(onChangeFn);
+  folder.open();
+}
+</pre>
+<p>変更時は常にヘルパーの <code class="notranslate" translate="no">update</code> 関数を呼び出す必要があります。
+そのため、dat.GUIが値を更新時に <code class="notranslate" translate="no">onChangeFn</code> 関数を渡しています。</p>
+<p>makeXYZGUI関数はlight.positionとlight.target.positionの両方に使えます。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">+function updateLight() {
++  light.target.updateMatrixWorld();
++  helper.update();
++}
++updateLight();
+
+const gui = new GUI();
+gui.addColor(new ColorGUIHelper(light, 'color'), 'value').name('color');
+gui.add(light, 'intensity', 0, 2, 0.01);
+
++makeXYZGUI(gui, light.position, 'position', updateLight);
++makeXYZGUI(gui, light.target.position, 'target', updateLight);
+</pre>
+<p>これでライトを動かす事ができるようになりました。</p>
+<p></p><div translate="no" class="threejs_example_container notranslate">
+  <div><iframe class="threejs_example notranslate" translate="no" style=" " src="/threejs/resources/editor.html?url=/threejs/lessons/..%2Fthreejs-lights-directional-w-helper.html"></iframe></div>
+  <a class="threejs_center" href="/threejs/lessons/../threejs-lights-directional-w-helper.html" target="_blank">ここをクリックして別のウィンドウで開きます</a>
+</div>
+
+<p></p>
+<p>カメラを軌道に乗せると見やすくなります。
+この平面は <a href="https://threejs.org/docs/#api/en/lights/DirectionalLight"><code class="notranslate" translate="no">DirectionalLight</code></a> を表しており、DirectionalLightが一方向からのライティングを計算します。
+光の出所は<em>点</em>ではなく、平面を無限に照らす平行光線です。</p>
+<h2 id="-pointlight-"><code class="notranslate" translate="no">PointLight（点光源）</code></h2>
+<p><a href="https://threejs.org/docs/#api/en/lights/PointLight"><code class="notranslate" translate="no">PointLight</code></a> はある点から全方向に光を放つライトです。
+コード変更しましょう。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">const color = 0xFFFFFF;
+const intensity = 1;
+-const light = new THREE.DirectionalLight(color, intensity);
++const light = new THREE.PointLight(color, intensity);
+light.position.set(0, 10, 0);
+-light.target.position.set(-5, 0, 0);
+scene.add(light);
+-scene.add(light.target);
+</pre>
+<p><a href="https://threejs.org/docs/#api/en/helpers/PointLightHelper"><code class="notranslate" translate="no">PointLightHelper</code></a> に切り替えます。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">-const helper = new THREE.DirectionalLightHelper(light);
++const helper = new THREE.PointLightHelper(light);
+scene.add(helper);
+</pre>
+<p>light.targetがないので <code class="notranslate" translate="no">onChange</code> 関数はもっとシンプルになります。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">function updateLight() {
+-  light.target.updateMatrixWorld();
+  helper.update();
+}
+-updateLight();
+</pre>
+<p><a href="https://threejs.org/docs/#api/en/helpers/PointLightHelper"><code class="notranslate" translate="no">PointLightHelper</code></a> には点がない事に注意して下さい。
+小さなダイヤモンドのワイヤーフレームを描画します。
+簡単に望む任意の形状にできて、ライト自体にメッシュを追加します。</p>
+<p><a href="https://threejs.org/docs/#api/en/lights/PointLight"><code class="notranslate" translate="no">PointLight</code></a> は <a href="https://threejs.org/docs/#api/en/lights/PointLight#distance"><code class="notranslate" translate="no">distance</code></a>プロパティを持ちます。
+<code class="notranslate" translate="no">distance</code> が0ならば <a href="https://threejs.org/docs/#api/en/lights/PointLight"><code class="notranslate" translate="no">PointLight</code></a> は無限大に輝きます。
+<code class="notranslate" translate="no">distance</code> が0よりも大きい場合、ライトに向かってライトの全強度を照らし、ライトから離れた <code class="notranslate" translate="no">distance</code> では影響を受けないようにフェードアウトします。</p>
+<p>distanceを調整できるようにGUIを設定してみましょう。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">const gui = new GUI();
+gui.addColor(new ColorGUIHelper(light, 'color'), 'value').name('color');
+gui.add(light, 'intensity', 0, 2, 0.01);
++gui.add(light, 'distance', 0, 40).onChange(updateLight);
+
+makeXYZGUI(gui, light.position, 'position', updateLight);
+-makeXYZGUI(gui, light.target.position, 'target', updateLight);
+</pre>
+<p>これを試してみて下さい。</p>
+<p></p><div translate="no" class="threejs_example_container notranslate">
+  <div><iframe class="threejs_example notranslate" translate="no" style=" " src="/threejs/resources/editor.html?url=/threejs/lessons/..%2Fthreejs-lights-point.html"></iframe></div>
+  <a class="threejs_center" href="/threejs/lessons/../threejs-lights-point.html" target="_blank">ここをクリックして別のウィンドウで開きます</a>
+</div>
+
+<p></p>
+<p><code class="notranslate" translate="no">distance</code> が &gt; 0 の時にライトがフェードアウトしている事に注目して下さい。</p>
+<h2 id="-spotlight-"><code class="notranslate" translate="no">SpotLight（集中光線）</code></h2>
+<p>集中光源は円錐体にライティングする時に効果的です。
+実際は2つの円錐体があります。外側と内側の円錐体です。
+内側と外側の円錐体の間では、ライトは強度のMAX値から0にフェードします。</p>
+<p><a href="https://threejs.org/docs/#api/en/lights/SpotLight"><code class="notranslate" translate="no">SpotLight</code></a> を使うには、平行光源と同じようにターゲットが必要です。
+ライトの円錐体がターゲットに向かって照らされます。</p>
+<p>上記のヘルパーを使って <a href="https://threejs.org/docs/#api/en/lights/DirectionalLight"><code class="notranslate" translate="no">DirectionalLight</code></a> を修正します。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">const color = 0xFFFFFF;
+const intensity = 1;
+-const light = new THREE.DirectionalLight(color, intensity);
++const light = new THREE.SpotLight(color, intensity);
+scene.add(light);
+scene.add(light.target);
+
+-const helper = new THREE.DirectionalLightHelper(light);
++const helper = new THREE.SpotLightHelper(light);
+scene.add(helper);
+</pre>
+<p>集中光源の円錐体の角度は <a href="https://threejs.org/docs/#api/en/lights/SpotLight#angle"><code class="notranslate" translate="no">angle</code></a>プロパティでラジアン単位で設定します。
+<a href="threejs-textures.html">テクスチャ記事</a>の <code class="notranslate" translate="no">DegRadHelper</code> を使い、度数でUIに表示します。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">gui.add(new DegRadHelper(light, 'angle'), 'value', 0, 90).name('angle').onChange(updateLight);
+</pre>
+<p>内側の円錐は<a href="https://threejs.org/docs/#api/en/lights/SpotLight#penumbra"><code class="notranslate" translate="no">penumbra</code></a>プロパティを外側の円錐からの%として設定します。
+<code class="notranslate" translate="no">penumbra</code> が1の時、ライトは円錐の中心から外側の円錐に向かってフェードしていきます。
+<code class="notranslate" translate="no">penumbra</code> が5の時、ライトは外側の円錐体の中心から50%からフェードしていきます。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">gui.add(light, 'penumbra', 0, 1, 0.01);
+</pre>
+<p></p><div translate="no" class="threejs_example_container notranslate">
+  <div><iframe class="threejs_example notranslate" translate="no" style=" " src="/threejs/resources/editor.html?url=/threejs/lessons/..%2Fthreejs-lights-spot-w-helper.html"></iframe></div>
+  <a class="threejs_center" href="/threejs/lessons/../threejs-lights-spot-w-helper.html" target="_blank">ここをクリックして別のウィンドウで開きます</a>
+</div>
+
+<p></p>
+<p>デフォルトの <code class="notranslate" translate="no">penumbra</code> が0の場合、集中光源は非常にシャープなエッジを持っていますが、1 に向けて <code class="notranslate" translate="no">penumbra</code> を調整するとエッジがぼやけます。</p>
+<p>集中光源の<em>円錐体</em>が見えにくいかもしれません。
+その理由は地面にあります。
+距離を5くらいまで縮めると、円錐体の端が開いているのが見えてきます。</p>
+<h2 id="-rectarealight-"><code class="notranslate" translate="no">RectAreaLight（矩形光源）</code></h2>
+<p>もう1種類のライトに <a href="https://threejs.org/docs/#api/en/lights/RectAreaLight"><code class="notranslate" translate="no">RectAreaLight</code></a> があります。
+これはまさにその名の通り、長い蛍光灯のような長方形のエリアのライトや天井にある曇り空のライトです。</p>
+<p><a href="https://threejs.org/docs/#api/en/lights/RectAreaLight"><code class="notranslate" translate="no">RectAreaLight</code></a> は <a href="https://threejs.org/docs/#api/en/materials/MeshStandardMaterial"><code class="notranslate" translate="no">MeshStandardMaterial</code></a> と <a href="https://threejs.org/docs/#api/en/materials/MeshPhysicalMaterial"><code class="notranslate" translate="no">MeshPhysicalMaterial</code></a> でしか動作しないので、全てのマテリアルを <a href="https://threejs.org/docs/#api/en/materials/MeshStandardMaterial"><code class="notranslate" translate="no">MeshStandardMaterial</code></a> に変更しましょう。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">  ...
+
+  const planeGeo = new THREE.PlaneGeometry(planeSize, planeSize);
+-  const planeMat = new THREE.MeshPhongMaterial({
++  const planeMat = new THREE.MeshStandardMaterial({
+    map: texture,
+    side: THREE.DoubleSide,
+  });
+  const mesh = new THREE.Mesh(planeGeo, planeMat);
+  mesh.rotation.x = Math.PI * -.5;
+  scene.add(mesh);
+}
+{
+  const cubeSize = 4;
+  const cubeGeo = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize);
+- const cubeMat = new THREE.MeshPhongMaterial({color: '#8AC'});
++ const cubeMat = new THREE.MeshStandardMaterial({color: '#8AC'});
+  const mesh = new THREE.Mesh(cubeGeo, cubeMat);
+  mesh.position.set(cubeSize + 1, cubeSize / 2, 0);
+  scene.add(mesh);
+}
+{
+  const sphereRadius = 3;
+  const sphereWidthDivisions = 32;
+  const sphereHeightDivisions = 16;
+  const sphereGeo = new THREE.SphereGeometry(sphereRadius, sphereWidthDivisions, sphereHeightDivisions);
+-  const sphereMat = new THREE.MeshPhongMaterial({color: '#CA8'});
++ const sphereMat = new THREE.MeshStandardMaterial({color: '#CA8'});
+  const mesh = new THREE.Mesh(sphereGeo, sphereMat);
+  mesh.position.set(-sphereRadius - 1, sphereRadius + 2, 0);
+  scene.add(mesh);
+}
+</pre>
+<p><a href="https://threejs.org/docs/#api/en/lights/RectAreaLight"><code class="notranslate" translate="no">RectAreaLight</code></a> を使用するには、three.jsから追加のimportが必要です。
+ライトを可視化するために <a href="https://threejs.org/docs/#api/en/helpers/RectAreaLightHelper"><code class="notranslate" translate="no">RectAreaLightHelper</code></a> をimportします。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">import * as THREE from './resources/three/r125/build/three.module.js';
++import {RectAreaLightUniformsLib} from './resources/threejs/r125/examples/jsm/lights/RectAreaLightUniformsLib.js';
++import {RectAreaLightHelper} from './resources/threejs/r125/examples/jsm/helpers/RectAreaLightHelper.js';
+</pre>
+<p><code class="notranslate" translate="no">RectAreaLightUniformsLib.init</code> を呼び出します。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">function main() {
+  const canvas = document.querySelector('#c');
+  const renderer = new THREE.WebGLRenderer({canvas});
++  RectAreaLightUniformsLib.init();
+</pre>
+<p>RectAreaLightUniformsLibを忘れてもライトは動作しますが、見た目がおかしくなるので忘れないようにして下さい。</p>
+<p>これでライトを作れました。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">const color = 0xFFFFFF;
+*const intensity = 5;
++const width = 12;
++const height = 4;
+*const light = new THREE.RectAreaLight(color, intensity, width, height);
+light.position.set(0, 10, 0);
++light.rotation.x = THREE.MathUtils.degToRad(-90);
+scene.add(light);
+
+*const helper = new RectAreaLightHelper(light);
+*light.add(helper);
+</pre>
+<p>注意すべき点は <a href="https://threejs.org/docs/#api/en/lights/DirectionalLight"><code class="notranslate" translate="no">DirectionalLight</code></a> や <a href="https://threejs.org/docs/#api/en/lights/SpotLight"><code class="notranslate" translate="no">SpotLight</code></a> と異なり、<a href="https://threejs.org/docs/#api/en/lights/RectAreaLight"><code class="notranslate" translate="no">RectAreaLight</code></a> はターゲットを使いません。
+その回転を利用しているだけです。
+もう1つ気をつける事は、ヘルパーがライトの子である必要があります。
+他のヘルパーのようにシーンの子ではありません。</p>
+<p>GUIも調整してみましょう。
+ライトを回転させて <code class="notranslate" translate="no">width</code> と <code class="notranslate" translate="no">height</code> を調整できるようにします。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">const gui = new GUI();
+gui.addColor(new ColorGUIHelper(light, 'color'), 'value').name('color');
+gui.add(light, 'intensity', 0, 10, 0.01);
+gui.add(light, 'width', 0, 20).onChange(updateLight);
+gui.add(light, 'height', 0, 20).onChange(updateLight);
+gui.add(new DegRadHelper(light.rotation, 'x'), 'value', -180, 180).name('x rotation').onChange(updateLight);
+gui.add(new DegRadHelper(light.rotation, 'y'), 'value', -180, 180).name('y rotation').onChange(updateLight);
+gui.add(new DegRadHelper(light.rotation, 'z'), 'value', -180, 180).name('z rotation').onChange(updateLight);
+
+makeXYZGUI(gui, light.position, 'position', updateLight);
+</pre>
+<p>そして、これが結果です。</p>
+<p></p><div translate="no" class="threejs_example_container notranslate">
+  <div><iframe class="threejs_example notranslate" translate="no" style=" " src="/threejs/resources/editor.html?url=/threejs/lessons/..%2Fthreejs-lights-rectarea.html"></iframe></div>
+  <a class="threejs_center" href="/threejs/lessons/../threejs-lights-rectarea.html" target="_blank">ここをクリックして別のウィンドウで開きます</a>
+</div>
+
+<p></p>
+<p>説明してない事が1つあり、 <a href="https://threejs.org/docs/#api/en/renderers/WebGLRenderer"><code class="notranslate" translate="no">WebGLRenderer</code></a> に <code class="notranslate" translate="no">physicallyCorrectLights</code> を設定します。
+ライトとの距離は、ライトの落ち方に影響を与えます。
+これは <a href="https://threejs.org/docs/#api/en/lights/PointLight"><code class="notranslate" translate="no">PointLight</code></a> と <a href="https://threejs.org/docs/#api/en/lights/SpotLight"><code class="notranslate" translate="no">SpotLight</code></a> にのみ影響します。
+<a href="https://threejs.org/docs/#api/en/lights/RectAreaLight"><code class="notranslate" translate="no">RectAreaLight</code></a> は自動的にこれを行います。</p>
+<p>ライトの場合の基本的な考え方は、フェードアウトする距離を設定しない、<code class="notranslate" translate="no">intensity</code> を設定しない事です。
+代わりにライトの<a href="https://threejs.org/docs/#api/en/lights/PointLight#power"><code class="notranslate" translate="no">power</code></a>をルーメン単位で設定すると、three.jsは実際のライトのように物理計算を行います。
+この場合の単位はメートルで、60Wの電球であれば800ルーメン程度の明るさになります。
+また<a href="https://threejs.org/docs/#api/en/lights/PointLight#decay"><code class="notranslate" translate="no">decay</code></a>プロパティもあります。
+現実的な減衰のためには <code class="notranslate" translate="no">2</code> に設定します。</p>
+<p>試してみましょう。</p>
+<p>まずは物理的に正しいライトを作ります。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">const renderer = new THREE.WebGLRenderer({canvas});
++renderer.physicallyCorrectLights = true;
+</pre>
+<p>次に <code class="notranslate" translate="no">power</code> を800ルーメンにし、<code class="notranslate" translate="no">decay</code> を2にします。
+<code class="notranslate" translate="no">distance</code> は <code class="notranslate" translate="no">Infinity</code> にします。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">const color = 0xFFFFFF;
+const intensity = 1;
+const light = new THREE.PointLight(color, intensity);
+light.power = 800;
+light.decay = 2;
+light.distance = Infinity;
+</pre>
+<p>GUIを追加して <code class="notranslate" translate="no">power</code> と <code class="notranslate" translate="no">decay</code> を変更できるようにします。</p>
+<pre class="prettyprint showlinemods notranslate lang-js" translate="no">const gui = new GUI();
+gui.addColor(new ColorGUIHelper(light, 'color'), 'value').name('color');
+gui.add(light, 'decay', 0, 4, 0.01);
+gui.add(light, 'power', 0, 2000);
+</pre>
+<p></p><div translate="no" class="threejs_example_container notranslate">
+  <div><iframe class="threejs_example notranslate" translate="no" style=" " src="/threejs/resources/editor.html?url=/threejs/lessons/..%2Fthreejs-lights-point-physically-correct.html"></iframe></div>
+  <a class="threejs_center" href="/threejs/lessons/../threejs-lights-point-physically-correct.html" target="_blank">ここをクリックして別のウィンドウで開きます</a>
+</div>
+
+<p></p>
+<p>シーンにライトを追加するたびに、Three.jsのレンダリング速度が遅くなる事に注意して下さい。</p>
+<p>次は<a href="threejs-cameras.html">カメラの扱い方</a>についてです。</p>
+<p><canvas id="c"></canvas></p>
+<script type="module" src="../resources/threejs-lights.js"></script>
 
     </div>
     <div class="lesson-sidebar">
         <select class="language">
-    <option value="/threejs/lessons/threejs-lights.html" >English</a>
-    <option value="/threejs/lessons/fr/threejs-lights.html" >Français</a>
-    <option value="/threejs/lessons/ja/threejs-lights.html" selected>日本語</a>
-    <option value="/threejs/lessons/kr/threejs-lights.html" >한국어</a>
-    <option value="/threejs/lessons/ru/threejs-lights.html" >Русский</a>
-    <option value="/threejs/lessons/zh_cn/threejs-lights.html" >中文</a>
-</select>
+    <option value="/threejs/lessons/threejs-lights.html">English
+    </option><option value="/threejs/lessons/fr/threejs-lights.html">Français
+    </option><option value="/threejs/lessons/ja/threejs-lights.html" selected="">日本語
+    </option><option value="/threejs/lessons/kr/threejs-lights.html">한국어
+    </option><option value="/threejs/lessons/ru/threejs-lights.html">Русский
+    </option><option value="/threejs/lessons/zh_cn/threejs-lights.html">中文
+</option></select>
 
 
-        <ul>  <li>基本</li>
+        <div id="toc">
+          <ul>  <li>基本</li>
         <ul>
           <li><a href="/threejs/lessons/ja/threejs-fundamentals.html">基礎知識</a></li>
 <li><a href="/threejs/lessons/ja/threejs-responsive.html">レスポンシブデザイン</a></li>
@@ -192,48 +692,47 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   <li>基礎</li>
         <ul>
           <li><a href="/threejs/lessons/ja/threejs-primitives.html">プリミティブ</a></li>
-<li><a href="/threejs/lessons/ja/threejs-scenegraph.html">Scenegraph</a></li>
-<li><a href="/threejs/lessons/ja/threejs-materials.html">Materials</a></li>
-<li><a href="/threejs/lessons/ja/threejs-textures.html">Textures</a></li>
-<li><a href="/threejs/lessons/ja/threejs-lights.html">Lights</a></li>
-<li><a href="/threejs/lessons/ja/threejs-cameras.html">Cameras</a></li>
-<li><a href="/threejs/lessons/ja/threejs-shadows.html">Shadows</a></li>
-<li><a href="/threejs/lessons/ja/threejs-fog.html">Fog</a></li>
-<li><a href="/threejs/lessons/ja/threejs-rendertargets.html">Render Targets</a></li>
-<li><a href="/threejs/lessons/ja/threejs-custom-geometry.html">Custom Geometry</a></li>
-<li><a href="/threejs/lessons/ja/threejs-custom-buffergeometry.html">Custom BufferGeometry</a></li>
+<li><a href="/threejs/lessons/ja/threejs-scenegraph.html">シーングラフ</a></li>
+<li><a href="/threejs/lessons/ja/threejs-materials.html">マテリアル</a></li>
+<li><a href="/threejs/lessons/ja/threejs-textures.html">テクスチャ</a></li>
+<li><a href="/threejs/lessons/ja/threejs-lights.html">ライト</a></li>
+<li><a href="/threejs/lessons/ja/threejs-cameras.html">カメラ</a></li>
+<li><a href="/threejs/lessons/ja/threejs-shadows.html">シャドウ</a></li>
+<li><a href="/threejs/lessons/ja/threejs-fog.html">フォグ</a></li>
+<li><a href="/threejs/lessons/ja/threejs-rendertargets.html">レンダーターゲット</a></li>
+<li><a href="/threejs/lessons/ja/threejs-custom-buffergeometry.html">カスタムバッファジオメトリ</a></li>
         </ul>
   <li>Tips</li>
         <ul>
-          <li><a href="/threejs/lessons/ja/threejs-rendering-on-demand.html">Rendering On Demand</a></li>
-<li><a href="/threejs/lessons/ja/threejs-debugging-javascript.html">Debugging JavaScript</a></li>
-<li><a href="/threejs/lessons/ja/threejs-debugging-glsl.html">Debugging GLSL</a></li>
-<li><a href="/threejs/lessons/ja/threejs-tips.html#screenshot">Taking a screenshot</a></li>
-<li><a href="/threejs/lessons/ja/threejs-tips.html#preservedrawingbuffer">Prevent the Canvas Being Cleared</a></li>
-<li><a href="/threejs/lessons/ja/threejs-tips.html#tabindex">Get Keyboard Input From a Canvas</a></li>
-<li><a href="/threejs/lessons/ja/threejs-tips.html#transparent-canvas">Make the Canvas Transparent</a></li>
-<li><a href="/threejs/lessons/ja/threejs-tips.html#html-background">Use three.js as Background in HTML</a></li>
+          <li><a href="/threejs/lessons/ja/threejs-rendering-on-demand.html">要求されたレンダリング</a></li>
+<li><a href="/threejs/lessons/ja/threejs-debugging-javascript.html">JavaScriptのデバッグ</a></li>
+<li><a href="/threejs/lessons/ja/threejs-debugging-glsl.html">GLSLのデバッグ</a></li>
+<li><a href="/threejs/lessons/ja/threejs-tips.html#screenshot">スクリーンショットを撮る</a></li>
+<li><a href="/threejs/lessons/ja/threejs-tips.html#preservedrawingbuffer">キャンバスがクリアされるのを防ぐ</a></li>
+<li><a href="/threejs/lessons/ja/threejs-tips.html#tabindex">キャンバスからキーボード入力を取得する</a></li>
+<li><a href="/threejs/lessons/ja/threejs-tips.html#transparent-canvas">キャンバスを透明にする</a></li>
+<li><a href="/threejs/lessons/ja/threejs-tips.html#html-background">HTMLの背景にthree.jsを使う</a></li>
         </ul>
   <li>最適化</li>
         <ul>
-          <li><a href="/threejs/lessons/ja/threejs-optimize-lots-of-objects.html">Optimizing Lots of Objects</a></li>
-<li><a href="/threejs/lessons/ja/threejs-optimize-lots-of-objects-animated.html">Optimizing Lots of Objects Animated</a></li>
-<li><a href="/threejs/lessons/ja/threejs-offscreencanvas.html">Using OffscreenCanvas in a Web Worker</a></li>
+          <li><a href="/threejs/lessons/ja/threejs-optimize-lots-of-objects.html">多くのオブジェクトを最適化</a></li>
+<li><a href="/threejs/lessons/ja/threejs-optimize-lots-of-objects-animated.html">アニメーションする多くのオブジェクトを最適化</a></li>
+<li><a href="/threejs/lessons/ja/threejs-offscreencanvas.html">Web WorkerでOffscreenCanvasを使用する</a></li>
         </ul>
   <li>解決策</li>
         <ul>
-          <li><a href="/threejs/lessons/ja/threejs-load-obj.html">Load an .OBJ file</a></li>
-<li><a href="/threejs/lessons/ja/threejs-load-gltf.html">Load a .GLTF file</a></li>
-<li><a href="/threejs/lessons/ja/threejs-backgrounds.html">Add a Background or Skybox</a></li>
-<li><a href="/threejs/lessons/ja/threejs-transparency.html">How to Draw Transparent Objects</a></li>
-<li><a href="/threejs/lessons/ja/threejs-multiple-scenes.html">Multiple Canvases, Multiple Scenes</a></li>
-<li><a href="/threejs/lessons/ja/threejs-picking.html">Picking Objects with the mouse</a></li>
-<li><a href="/threejs/lessons/ja/threejs-post-processing.html">Post Processing</a></li>
-<li><a href="/threejs/lessons/ja/threejs-post-processing-3dlut.html">Applying a LUT File for effects</a></li>
-<li><a href="/threejs/lessons/ja/threejs-shadertoy.html">Using Shadertoy shaders</a></li>
-<li><a href="/threejs/lessons/ja/threejs-align-html-elements-to-3d.html">Aligning HTML Elements to 3D</a></li>
-<li><a href="/threejs/lessons/ja/threejs-indexed-textures.html">Using Indexed Textures for Picking and Color</a></li>
-<li><a href="/threejs/lessons/ja/threejs-canvas-textures.html">Using A Canvas for Dynamic Textures</a></li>
+          <li><a href="/threejs/lessons/ja/threejs-load-obj.html">OBJファイルの読み込み</a></li>
+<li><a href="/threejs/lessons/ja/threejs-load-gltf.html">GLTFファイルの読み込み</a></li>
+<li><a href="/threejs/lessons/ja/threejs-backgrounds.html">背景やスカイボックスを追加する</a></li>
+<li><a href="/threejs/lessons/ja/threejs-transparency.html">透明なオブジェクトの描画方法</a></li>
+<li><a href="/threejs/lessons/ja/threejs-multiple-scenes.html">複数キャンバスと複数シーン</a></li>
+<li><a href="/threejs/lessons/ja/threejs-picking.html">マウスでオブジェクトをピッキング</a></li>
+<li><a href="/threejs/lessons/ja/threejs-post-processing.html">ポストプロセス</a></li>
+<li><a href="/threejs/lessons/ja/threejs-post-processing-3dlut.html">エフェクトにLUTファイルを適用する</a></li>
+<li><a href="/threejs/lessons/ja/threejs-shadertoy.html">Shadertoyのシェーダーを使う</a></li>
+<li><a href="/threejs/lessons/ja/threejs-align-html-elements-to-3d.html">HTML要素を3Dに揃える</a></li>
+<li><a href="/threejs/lessons/ja/threejs-indexed-textures.html">圧縮テクスチャのピッキングとカラー</a></li>
+<li><a href="/threejs/lessons/ja/threejs-canvas-textures.html">動的なテクスチャのキャンバスを使用する</a></li>
 <li><a href="/threejs/lessons/ja/threejs-billboards.html">Billboards and Facades</a></li>
 <li><a href="/threejs/lessons/ja/threejs-cleanup.html">Freeing Resources</a></li>
 <li><a href="/threejs/lessons/ja/threejs-voxel-geometry.html">Making Voxel Geometry (Minecraft)</a></li>
@@ -255,10 +754,44 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   <li><a href="https://threejs.org/docs/">three.jsドキュメント</a></li>
 </ul>
 
+        </div>
+    </div>
+    <div class="lesson-comments">
+        
+    <div>Issue/Bug? <a href="http://github.com/greggman/threefundamentals/issues">またはgithubでissueを作って下さい</a>.</div>
+  
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'threejsfundamentals'; // required: replace example with your forum shortname
+            var disqus_identifier = 'Three.jsのライト';
+            var disqus_title = 'Three.jsのライト';
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                if (window.location.hostname.indexOf("threejsfundamentals.org") < 0) {
+                    return;
+                }
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </div>
   </div>
 </div>
-</body>
+
+<script>
+const settings = {
+  contribTemplate: "Thank you <a href=\"${html_url}\"><img src=\"${avatar_url}\"> ${login}</a><br>for <a href=\"https://github.com/${owner}/${repo}/commits?author=${login}\">${contributions} contributions</a>",
+  owner: "gfxfundamentals",
+  repo: "threejsfundamentals",
+};
+</script>
+<script src="/contributors.js"></script>
 <script src="/3rdparty/jquery-3.3.1.slim.min.js"></script>
 <script src="/threejs/lessons/resources/prettify.js"></script>
 <script src="/threejs/lessons/resources/lesson.js"></script>
@@ -292,7 +825,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 </script>
 
 
-</html>
 
 
 
+
+</body></html>

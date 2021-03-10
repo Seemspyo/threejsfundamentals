@@ -21,11 +21,10 @@
     <canvas id="c"></canvas>
   </body>
 <script type="module">
-import * as THREE from './resources/threejs/r119/build/three.module.js';
-import {OrbitControls} from './resources/threejs/r119/examples/jsm/controls/OrbitControls.js';
-import {OBJLoader2} from './resources/threejs/r119/examples/jsm/loaders/OBJLoader2.js';
-import {MTLLoader} from './resources/threejs/r119/examples/jsm/loaders/MTLLoader.js';
-import {MtlObjBridge} from './resources/threejs/r119/examples/jsm/loaders/obj2/bridge/MtlObjBridge.js';
+import * as THREE from './resources/threejs/r125/build/three.module.js';
+import {OrbitControls} from './resources/threejs/r125/examples/jsm/controls/OrbitControls.js';
+import {OBJLoader} from './resources/threejs/r125/examples/jsm/loaders/OBJLoader.js';
+import {MTLLoader} from './resources/threejs/r125/examples/jsm/loaders/MTLLoader.js';
 
 function main() {
   const canvas = document.querySelector('#c');
@@ -56,7 +55,7 @@ function main() {
     const repeats = planeSize / 2;
     texture.repeat.set(repeats, repeats);
 
-    const planeGeo = new THREE.PlaneBufferGeometry(planeSize, planeSize);
+    const planeGeo = new THREE.PlaneGeometry(planeSize, planeSize);
     const planeMat = new THREE.MeshPhongMaterial({
       map: texture,
       side: THREE.DoubleSide,
@@ -85,10 +84,10 @@ function main() {
 
   {
     const mtlLoader = new MTLLoader();
-    mtlLoader.load('resources/models/windmill/windmill.mtl', (mtlParseResult) => {
-      const objLoader = new OBJLoader2();
-      const materials =  MtlObjBridge.addMaterialsFromMtlLoader(mtlParseResult);
-      objLoader.addMaterials(materials);
+    mtlLoader.load('resources/models/windmill/windmill.mtl', (mtl) => {
+      mtl.preload();
+      const objLoader = new OBJLoader();
+      objLoader.setMaterials(mtl);
       objLoader.load('resources/models/windmill/windmill.obj', (root) => {
         scene.add(root);
       });

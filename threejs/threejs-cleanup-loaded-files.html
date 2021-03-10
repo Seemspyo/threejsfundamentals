@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Three.js - Cleanup Loaded Files</title>
     <style>
-    body {
+    html, body {
+        height: 100%;
         margin: 0;
     }
     #c {
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
         display: block;
     }
     #root {
@@ -25,8 +26,8 @@
     <canvas id="c"></canvas>
   </body>
 <script type="module">
-import * as THREE from './resources/threejs/r119/build/three.module.js';
-import {GLTFLoader} from './resources/threejs/r119/examples/jsm/loaders/GLTFLoader.js';
+import * as THREE from './resources/threejs/r125/build/three.module.js';
+import {GLTFLoader} from './resources/threejs/r125/examples/jsm/loaders/GLTFLoader.js';
 
 class ResourceTracker {
   constructor() {

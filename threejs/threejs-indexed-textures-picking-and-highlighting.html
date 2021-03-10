@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Three.js - Indexed Textures - Picking and Highlighting</title>
     <style>
-    body {
+    html, body {
+        height: 100%;
         margin: 0;
         font-family: sans-serif;
     }
@@ -17,8 +18,8 @@
     }
     #container {
       position: relative;  /* makes this the origin of its children */
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       overflow: hidden;
     }
     #labels {
@@ -58,8 +59,8 @@
     </div>
   </body>
 <script type="module">
-import * as THREE from './resources/threejs/r119/build/three.module.js';
-import {OrbitControls} from './resources/threejs/r119/examples/jsm/controls/OrbitControls.js';
+import * as THREE from './resources/threejs/r125/build/three.module.js';
+import {OrbitControls} from './resources/threejs/r125/examples/jsm/controls/OrbitControls.js';
 
 function main() {
   const canvas = document.querySelector('#c');
@@ -122,7 +123,7 @@ function main() {
 
   {
     const loader = new THREE.TextureLoader();
-    const geometry = new THREE.SphereBufferGeometry(1, 64, 32);
+    const geometry = new THREE.SphereGeometry(1, 64, 32);
 
     const indexTexture = loader.load('resources/data/world/country-index-texture.png', render);
     indexTexture.minFilter = THREE.NearestFilter;
@@ -382,20 +383,7 @@ function main() {
     resetPalette();
   }
 
-  canvas.addEventListener('mouseup', pickCountry);
-
-  let lastTouch;
-  canvas.addEventListener('touchstart', (event) => {
-    // prevent the window from scrolling
-    event.preventDefault();
-    lastTouch = event.touches[0];
-  }, {passive: false});
-  canvas.addEventListener('touchmove', (event) => {
-    lastTouch = event.touches[0];
-  });
-  canvas.addEventListener('touchend', () => {
-    pickCountry(lastTouch);
-  });
+  canvas.addEventListener('pointerup', pickCountry);
 
   function resizeRendererToDisplaySize(renderer) {
     const canvas = renderer.domElement;

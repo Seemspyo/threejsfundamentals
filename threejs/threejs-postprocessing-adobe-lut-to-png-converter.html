@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <style>
-    body {
-      min-height: 100vh;
+    html, body {
+      min-height: 100%;
       font-family: monospace;
       background: #222;
       color: white;
@@ -17,7 +17,7 @@
       image-rendering: pixelated;
     }
     #cube {
-      max-width: calc(100vw - 20px);
+      max-width: calc(100% - 20px);
       overflow: auto;
     }
   </style>
@@ -33,10 +33,10 @@
 <script type="module">
 import * as lutParser from './resources/lut-reader.js';
 import * as dragAndDrop from './resources/drag-and-drop.js';
-import * as THREE from './resources/threejs/r119/build/three.module.js';
-import {EffectComposer} from './resources/threejs/r119/examples/jsm/postprocessing/EffectComposer.js';
-import {RenderPass} from './resources/threejs/r119/examples/jsm/postprocessing/RenderPass.js';
-import {ShaderPass} from './resources/threejs/r119/examples/jsm/postprocessing/ShaderPass.js';
+import * as THREE from './resources/threejs/r125/build/three.module.js';
+import {EffectComposer} from './resources/threejs/r125/examples/jsm/postprocessing/EffectComposer.js';
+import {RenderPass} from './resources/threejs/r125/examples/jsm/postprocessing/RenderPass.js';
+import {ShaderPass} from './resources/threejs/r125/examples/jsm/postprocessing/ShaderPass.js';
 
 function main() {
   const canvas = document.querySelector('#c');
@@ -91,7 +91,7 @@ function main() {
   idTexture.minFilter = THREE.NearestFilter;
 
   {
-    const planeGeo = new THREE.PlaneBufferGeometry(2, 2);
+    const planeGeo = new THREE.PlaneGeometry(2, 2);
     const planeMat = new THREE.MeshBasicMaterial({
       map: idTexture,
       depthTest: false,
@@ -194,10 +194,16 @@ function main() {
   dragAndDrop.setup({msg: 'Drop LUT File here'});
   dragAndDrop.onDropFile(readLUTFile);
 
+  function ext(s) {
+    const period = s.lastIndexOf('.');
+    return s.substr(period + 1);
+  }
+
   function readLUTFile(file) {
     const reader = new FileReader();
     reader.onload = (e) => {
-      const lut = lutParser.lutTo2D3Drgb8(lutParser.parse(e.target.result));
+      const type = ext(file.name);
+      const lut = lutParser.lutTo2D3Drgb8(lutParser.parse(e.target.result, type));
 
       effectLUT.uniforms.lutMapSize.value = lut.size;
 
@@ -228,6 +234,7 @@ function main() {
   }());
 
   document.querySelector('button').addEventListener('click', () => {
+    render();
     renderer.domElement.toBlob((blob) => {
       saveData(blob, `${name}-s${renderer.domElement.height}.png`);
     });
